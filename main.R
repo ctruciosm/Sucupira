@@ -50,20 +50,15 @@ for (i in anos) {
   ids.egresso <- c(ids.egresso,merged$id[which(merged$categoria.x=="Egresso")]) 
   merged.egresso <- subset(merged,id %in% ids.egresso)
   all.egresso <- rbind(all.egresso, merged.egresso)
-  
-  ids.docente <- c(ids.egresso,merged$id[which(merged$categoria.x=="Docente")]) 
-  merged.docente <- subset(merged,id %in% ids.docente)
-  all.docente <- rbind(all.docente, merged.docente)
+
   
 }
 
 unique_id_dicente <-  unique(all.discente$id)
 unique_id_egresso <-  unique(all.egresso$id)
-unique_id_docente <-  unique(all.docente$id)
 
 final_file_dicente <- NULL
 final_file_egresso <- NULL
-final_file_docente <- NULL
 
 
 for (j in unique_id_dicente){
