@@ -28,8 +28,8 @@ if (length(arquivos_issn) != length(arquivos_lista2)) {
   
 ## Merge
 all <- merged.all <- NULL
-ids.discente <- ids.egresso <- ids.docente <- NULL
-all.discente <- all.egresso <- all.docente <- NULL
+ids.discente <- ids.egresso <- NULL
+all.discente <- all.egresso  <- NULL
 
 for (i in anos) {
   
