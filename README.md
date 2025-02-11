@@ -9,8 +9,8 @@ Os códigos apresentados a seguir utilizam dados extraídos da plataforma Sucupi
 1.  Faça o download deste repositório como um arquivo .zip e descompacte-o.
 2.  Dentro da pasta Sucupira (gerada ao descompactar o .zip), abra o arquivo `Sucupira.Rproj` (para isso, além do `R`, será necessário ter o `RStudio` instalado).
 3.  Na pasta `arquivos`, utilize as subpastas `issn` e `lista2` e coloque nelas os arquivos baixados da plataforma Sucupira. Certifique-se de salvar cada arquivo com o nome correspondente ao ano, mantendo sempre a extensão `.xlsx`.
-    -   Na pasta `issn`
-    -   Na pasta `lista2`
+    -   Na pasta `issn`: arquivos da `Lista simples de produções intelectuais`
+    -   Na pasta `lista2`: arquivos da `Lista replicada de produções intelectuais com informações de autores`
 4.  Execute o arquivo `main.R`. Ele irá instalar automaticamente as dependências necessárias (pacotes), caso ainda não estejam instalados no seu computador.
 5.  Após a execução, serão gerados dois arquivos: `tabela2.2-dicente.csv` e `tabela2.2-egresso.csv`.
 
