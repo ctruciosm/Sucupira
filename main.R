@@ -2,7 +2,7 @@
 ###                   Tabelas Avalicação CAPES                               ###
 ################################################################################
 options(encoding="utf-8")
-anos <- c("2019","2020","2021","2022")
+anos <- c("2019","2020","2021")
 
 ## Pacotes
 ### Se os pacotes necessários não estão instalados, serão instalados
@@ -54,14 +54,14 @@ for (i in anos) {
   
 }
 
-unique_id_dicente <-  unique(all.discente$id)
+unique_id_discente <-  unique(all.discente$id)
 unique_id_egresso <-  unique(all.egresso$id)
 
-final_file_dicente <- NULL
+final_file_discente <- NULL
 final_file_egresso <- NULL
 
 
-for (j in unique_id_dicente){
+for (j in unique_id_discente){
   outros <- NULL
   discentes <- NULL
   sub <- data.frame(subset(all.discente, id == j))
@@ -74,11 +74,10 @@ for (j in unique_id_dicente){
   }
   discentes <- substring(discentes, 1, nchar(discentes) - 1)
   outros <- substring(outros, 1, nchar(outros) - 1)
-  final_file_dicente <- rbind(final_file_dicente, cbind(sub$ano.x[i], sub$tipo.x[i], sub$issn[i], sub$nome.x[i],
+  final_file_discente <- rbind(final_file_discente, cbind(sub$ano.x, sub$tipo.x, sub$issn, sub$nome.x,
     ifelse(length(discentes) == 0," ", discentes),
     ifelse(length(outros) == 0," ", outros)))  
 }
-
 
 for (j in unique_id_egresso){
   outros <- NULL
@@ -93,17 +92,15 @@ for (j in unique_id_egresso){
   }
   egressos <- substring(egressos, 1, nchar(egressos)-1)
   outros <- substring(outros, 1, nchar(outros) - 1)
-  final_file_egresso <- rbind(final_file_egresso, cbind(sub$ano.x[i], sub$tipo.x[i], sub$issn[i], sub$nome.x[i],
+  final_file_egresso <- rbind(final_file_egresso, cbind(sub$ano.x, sub$tipo.x, sub$issn, sub$nome.x,
     ifelse(length(egressos) == 0," ", egressos),
     ifelse(length(outros) == 0," ", outros)))  
 }
 
 ## Exportar tabelas 
-data.frame(final_file_dicente)
-colnames(final_file_dicente) <- c("ano","tipo","issn","titulo","autor.dicente","autor.outros")
-write_delim(data.frame(final_file_dicente), "tabela2.2-dicente.csv", delim = "*",na = " ",append = F)
+colnames(final_file_discente) <- c("ano","tipo","issn","titulo","autor.discente","autor.outros")
+write_delim(data.frame(final_file_discente), "tabela2.2-discente.csv", delim = "*",na = " ",append = F)
 
 
-data.frame(final_file_egresso)
 colnames(final_file_egresso) <- c("ano","tipo","issn","titulo","autor.egresso","autor.outros")
 write_delim(data.frame(final_file_egresso), "tabela2.2-egressos.csv", delim = "*",na = " ",append = F)
