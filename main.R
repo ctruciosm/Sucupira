@@ -2,7 +2,7 @@
 ###                   Tabelas Avalicação CAPES                               ###
 ################################################################################
 options(encoding="utf-8")
-anos <- c("2019","2020","2021")
+anos <- c("2017","2018","2019","2020","2021","2022","2023")
 
 ## Pacotes
 ### Se os pacotes necessários não estão instalados, serão instalados
