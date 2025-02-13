@@ -99,8 +99,8 @@ for (j in unique_id_egresso){
 
 ## Exportar tabelas 
 colnames(final_file_discente) <- c("ano","tipo","issn","titulo","autor.discente","autor.outros")
-write_delim(data.frame(final_file_discente), "tabela2.2-discente.csv", delim = "*",na = " ",append = F)
+write_delim(data.frame(unique(final_file_discente)), "tabela2.2-discente.csv", delim = "*",na = " ",append = F)
 
 
 colnames(final_file_egresso) <- c("ano","tipo","issn","titulo","autor.egresso","autor.outros")
-write_delim(data.frame(final_file_egresso), "tabela2.2-egressos.csv", delim = "*",na = " ",append = F)
+write_delim(data.frame(unique(final_file_egresso)), "tabela2.2-egressos.csv", delim = "*",na = " ",append = F)
