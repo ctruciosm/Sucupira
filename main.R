@@ -2,7 +2,7 @@
 ###                   Tabelas Avalicação CAPES                               ###
 ################################################################################
 options(encoding="utf-8")
-anos <- c("2017","2018","2019","2020","2021","2022","2023")
+anos <- c("2017","2018","2019","2020","2021","2022", "2023")
 
 ## Pacotes
 ### Se os pacotes necessários não estão instalados, serão instalados
@@ -34,7 +34,7 @@ all.discente <- all.egresso  <- NULL
 for (i in anos) {
   
   issn <- read_excel(arquivos_issn[str_detect(arquivos_issn, pattern = i)]) |> 
-    select("Ano da Produção", "ID da Produção", "Nome da Produção", "Produção vinculada a TCC concluído", "Subtipo de Produção", "ISSN", "Título", "Estrato", "Nome do Autor Principal",	"Categoria do Autor Principal") |> 
+    select("Ano da Produção", "ID da Produção", "Nome da Produção", "Subtipo de Produção", "ISSN", "Título", "Estrato", "Nome do Autor Principal",	"Categoria do Autor Principal") |> 
     setNames(c("ano", "id", "nome", "tipo", "issn", "nome.journal", "qualis", "autor.principal", "categoria"))
   lista2 <- read_excel(arquivos_lista2[str_detect(arquivos_lista2, pattern = i)]) |> 
     select("Ano da Produção", "ID da Produção", "Nome da Produção", "Subtipo de Produção", "Nome do Autor", "Categoria do Autor") |> 
